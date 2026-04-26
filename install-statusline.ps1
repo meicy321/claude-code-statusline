@@ -70,8 +70,13 @@ if (Test-Path $sessionStartFile) {
     }
     $settings.hooks | Add-Member -MemberType NoteProperty -Name "SessionStart" -Value @(
         @{
-            type = "command"
-            command = "bash ~/.claude/hooks/session-start.sh"
+            matcher = ""
+            hooks = @(
+                @{
+                    type = "command"
+                    command = "bash ~/.claude/hooks/session-start.sh"
+                }
+            )
         }
     ) -Force
 }
